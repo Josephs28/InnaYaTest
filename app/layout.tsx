@@ -1,6 +1,10 @@
 import { Cormorant_Garamond } from "next/font/google";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import {
+  GoogleTagManager,
+  GoogleTagManagerNoScript,
+} from "@/components/analytics/GoogleTagManager";
 import { brandFont } from "@/lib/fonts/brand";
 import "./globals.css";
 
@@ -30,7 +34,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className="min-h-full bg-background font-sans text-ink"
         suppressHydrationWarning
       >
+        <GoogleTagManagerNoScript />
         {children}
+        <GoogleTagManager />
       </body>
     </html>
   );
